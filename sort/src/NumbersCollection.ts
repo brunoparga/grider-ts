@@ -1,4 +1,6 @@
-export class NumbersCollection {
+import { Sortable } from './Sorter'
+
+export class NumbersCollection implements Sortable {
   constructor(public data: number[]) { }
 
   get length(): number {
@@ -13,6 +15,4 @@ export class NumbersCollection {
     [this.data[leftIndex], this.data[rightIndex]] =
       [this.data[rightIndex], this.data[leftIndex]]
   }
-
-
 }
