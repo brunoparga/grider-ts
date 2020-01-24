@@ -1,19 +1,14 @@
 import { CSVFileReader } from './CSVFileReader';
+import { MatchResult } from './MatchResult';
 
 const reader = new CSVFileReader('football.csv');
 reader.read();
 
 console.log(reader.data);
 
-enum MatchResult {
-  HomeWin = 'H',
-  AwayWin = 'A',
-  Draw = 'D'
-}
-
 let manUtdWins = 0;
 
-reader.data.forEach((match: string[]): void => {
+reader.data.forEach((match): void => {
   if (match[1] === 'Man United' && match[5] === MatchResult.HomeWin) {
     manUtdWins += 1;
   }
