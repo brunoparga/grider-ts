@@ -1,0 +1,34 @@
+{
+  "name": "typescript-course",
+  "version": "1.0.0",
+  "description": "Code from a Udemy TS course",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^2.18.0",
+    "@typescript-eslint/parser": "^2.18.0",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-plugin-import": "^2.20.0",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.18.0",
+    "eslint-plugin-react-hooks": "^1.7.0",
+    "typescript": "^3.7.5"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brunoparga/grider-ts.git"
+  },
+  "keywords": [
+    "TypeScript"
+  ],
+  "author": "Bruno Parga",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/brunoparga/grider-ts/issues"
+  },
+  "homepage": "https://github.com/brunoparga/grider-ts#readme"
+}
