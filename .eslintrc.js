@@ -7,6 +7,7 @@ module.exports = {
   extends: [
     'plugin:react/recommended',
     'airbnb',
+    'plugin:@typescript-eslint/recommended',
   ],
   globals: {
     Atomics: 'readonly',
@@ -14,6 +15,8 @@ module.exports = {
   },
   parser: '@typescript-eslint/parser',
   parserOptions: {
+    ecmaVersion: 2017,
+    sourceType: 'module',
     ecmaFeatures: {
       jsx: true,
     },
@@ -25,6 +28,6 @@ module.exports = {
     '@typescript-eslint',
   ],
   rules: {
-    "import/extensions": "off",
+    'import/extensions': 'off',
   },
 };
