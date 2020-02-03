@@ -1,6 +1,7 @@
 interface UserProps {
   name?: string;
-  age?: number
+  age?: number;
+  id?: number;
 }
 
 type Callback = () => void
@@ -28,6 +29,9 @@ export class User {
   }
 
   trigger(eventName: string): void {
-
+    const handlers = this.events[eventName];
+    if (handlers && handlers.length > 0) {
+      handlers.forEach((callback) => callback());
+    }
   }
 }
