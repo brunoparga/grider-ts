@@ -1,14 +1,18 @@
-interface UserProps {
+import { Eventing } from './Eventing';
+import { Sync } from './Sync';
+
+export interface UserProps {
+  id?: number;
   name?: string;
   age?: number;
-  id?: number;
 }
 
-type Callback = () => void
+const rootURL = 'http://localhost:3000/users';
 
-// eslint-disable-next-line import/prefer-default-export
 export class User {
-  events: { [key: string]: Callback[] } = {}
+  public events = new Eventing();
+
+  public sync: Sync<UserProps> = new Sync<UserProps>(rootURL);
 
   constructor(private data: UserProps) {
     this.data = data;
@@ -20,18 +24,5 @@ export class User {
 
   set(update: UserProps): void {
     Object.assign(this.data, update);
-  }
-
-  on(eventName: string, callback: Callback): void {
-    const handlers = this.events[eventName] || [];
-    handlers.push(callback);
-    this.events[eventName] = handlers;
-  }
-
-  trigger(eventName: string): void {
-    const handlers = this.events[eventName];
-    if (handlers && handlers.length > 0) {
-      handlers.forEach((callback) => callback());
-    }
   }
 }
