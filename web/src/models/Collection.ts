@@ -1,15 +1,17 @@
 import axios from 'axios';
-import { User, UserProps } from './User';
 
 import { Eventing } from './Eventing';
 
-export class Collection {
-  models: User[] = [];
+export class Collection<T, U> {
+  models: T[] = [];
 
   events: Eventing = new Eventing();
 
   // eslint-disable-next-line no-useless-constructor
-  constructor(public rootURL: string) {};
+  constructor(
+    public rootURL: string,
+    public deserialize: (json: U) => T,
+  ) {}
 
   get on(): Function {
     return this.events.on;
@@ -22,8 +24,8 @@ export class Collection {
   fetch(): void {
     axios.get(this.rootURL)
       .then((res) => {
-        this.models = res.data.map((props: UserProps) => User.build(props));
+        this.models = res.data.map((props: U): T => this.deserialize(props));
       });
-    this.trigger('change')
+    this.trigger('change');
   }
 }
