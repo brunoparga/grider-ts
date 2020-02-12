@@ -21,7 +21,6 @@ interface HasID {
 }
 
 export abstract class Model<T extends HasID> {
-  // eslint-disable-next-line no-useless-constructor
   constructor(
     private attributes: ModelAttributes<T>,
     private events: Events,

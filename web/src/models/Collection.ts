@@ -7,7 +7,6 @@ export class Collection<T, U> {
 
   events: Eventing = new Eventing();
 
-  // eslint-disable-next-line no-useless-constructor
   constructor(
     public rootURL: string,
     public deserialize: (json: U) => T,
