@@ -1,7 +1,6 @@
 import { User, UserProps } from '../models/User';
 import { View } from './View';
 
-/* eslint-disable class-methods-use-this */
 export class UserForm extends View<User, UserProps> {
   eventsMap(): { [key: string]: () => void } {
     return {
