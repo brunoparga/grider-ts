@@ -24,7 +24,7 @@ export class Collection<T, U> {
     axios.get(this.rootURL)
       .then((res) => {
         this.models = res.data.map((props: U): T => this.deserialize(props));
-      });
-    this.trigger('change');
+      })
+      .then(() => this.trigger('change'));
   }
 }
