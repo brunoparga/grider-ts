@@ -28,6 +28,13 @@ module.exports = {
     '@typescript-eslint',
   ],
   rules: {
-    'import/extensions': 'off',
+    'import/extensions': 'never',
   },
+  settings: {
+    'import/resolver': {
+      node: {
+        extensions: ['.js', '.jsx', '.ts', '.tsx'],
+      }
+    }
+  }
 };
